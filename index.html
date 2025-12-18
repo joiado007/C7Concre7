@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Concre7 - Calculadora Profissional</title>
+  <title>Concre7 - Calculadora de Pavers</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ea580c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -25,6 +26,12 @@
     .safe-bottom {
       padding-bottom: env(safe-area-inset-bottom);
     }
+    .active-tab {
+      color: #ea580c !important;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
   </style>
 <script type="importmap">
 {
@@ -36,7 +43,39 @@
 }
 </script>
 </head>
-<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
-  <div id="root"></div>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header Fixo -->
+  <header class="bg-white border-b border-gray-100 pt-5 pb-4 px-4 sticky top-0 z-50">
+    <div class="max-w-lg mx-auto flex flex-col items-center">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="bg-orange-600 text-white font-bold text-xl px-2.5 py-1 rounded shadow-sm">C7</div>
+        <h1 class="text-2xl font-extrabold text-gray-800 tracking-tight">Concre<span class="text-orange-600">7</span></h1>
+      </div>
+      <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Calculadora Profissional</p>
+    </div>
+  </header>
+
+  <!-- Container Principal -->
+  <main id="app-content" class="max-w-lg mx-auto w-full px-4 pt-4 pb-24">
+    <!-- O conteúdo será injetado pelo index.js -->
+  </main>
+
+  <!-- Navegação Inferior -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-3 flex justify-around items-center safe-bottom z-50">
+    <button id="nav-calc" class="flex flex-col items-center gap-1 transition-colors active-tab">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+      <span class="text-[10px] font-bold uppercase tracking-wider">Cálculo</span>
+    </button>
+    <button id="nav-history" class="flex flex-col items-center gap-1 transition-colors text-gray-400">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span class="text-[10px] font-bold uppercase tracking-wider">Histórico</span>
+    </button>
+  </nav>
+
+  <script src="index.js"></script>
 </body>
 </html>
